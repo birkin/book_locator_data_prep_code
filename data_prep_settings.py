@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
 
 
-FOO = 'BAR'
+import os
+
+
+LOCATOR_MODULE_DIR_PATH = os.environ['BK_LCTR_DTPRP__LOCATOR_MODULE_DIR_PATH']
+
+BOOK_LOCATOR_PROJECT_PATH = os.environ['BK_LCTR_DTPRP__LOCATOR_PROJECT_PATH']

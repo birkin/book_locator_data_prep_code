@@ -11,7 +11,9 @@ Build two json for each location.
 """
 
 import sys
-
+# import data_prep_settings as dp_settings
+# sys.path.append( dp_settings.LOCATOR_MODULE_DIR_PATH )
+# sys.path.append( dp_settings.BOOK_LOCATOR_PROJECT_PATH )
 
 from datetime import datetime
 from time import mktime
@@ -22,9 +24,9 @@ import pickle
 import sys
 assert sys.version_info.major > 2
 
-import data_prep_settings as dp_settings
-from locate import LocateData
-from callnumber.brown import Item
+
+from book_locator_app.locator import LocateData
+# from callnumber.brown import Item
 from oauth2client.client import SignedJwtAssertionCredentials
 import gspread
 import json
