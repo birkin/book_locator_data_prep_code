@@ -9,6 +9,10 @@ Build two json for each location.
  - dictionary with full location information that can be used for display
 
 """
+
+import sys
+
+
 from datetime import datetime
 from time import mktime
 from time import strptime
@@ -18,8 +22,8 @@ import pickle
 import sys
 assert sys.version_info.major > 2
 
-from book_locator_data_prep_code import data_prep_settings as dp_settings
-from book_locator_data_prep_code.locate import LocateData
+import data_prep_settings as dp_settings
+from locate import LocateData
 from callnumber.brown import Item
 from oauth2client.client import SignedJwtAssertionCredentials
 import gspread
