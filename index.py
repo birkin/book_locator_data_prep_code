@@ -19,7 +19,7 @@ import sys
 assert sys.version_info.major > 2
 
 from book_locator_data_prep_code import data_prep_settings as dp_settings
-from booklocator.locate import LocateData
+from book_locator_data_prep_code.locate import LocateData
 from callnumber.brown import Item
 from oauth2client.client import SignedJwtAssertionCredentials
 import gspread
@@ -27,9 +27,10 @@ import json
 
 
 # Logging
-logging.basicConfig(filename=dp_settings.LOG_FILENAME,
-                    level=logging.DEBUG,
-                    format='%(asctime)s %(message)s',
+logging.basicConfig(
+    # filename=dp_settings.LOG_FILENAME,
+    level=logging.DEBUG,
+    format='%(asctime)s %(message)s',
 )
 # Turn off other loggers
 log = logging.getLogger("oauth2client").setLevel(logging.WARNING)
@@ -129,7 +130,8 @@ def load_meta():
     try:
         with open(META_FILE) as inf:
             return pickle.load(inf)
-    except IOError, ValueError:
+    except ( IOError, ValueError ) as e:
+        log.exception()
         return None
 
 def get_index_last_updated():
